@@ -1,0 +1,33 @@
+Clean code is not about clever abstractions. It is about reducing the time it takes
+the next person — often you — to understand what a piece of code does and why.
+
+## Name things for what they are
+
+A variable called `data` tells the reader nothing. `unpaidInvoices` tells them
+everything. Spend the extra seconds on a name; you will read it a hundred times.
+
+## Keep functions small and honest
+
+A function should do one thing and its name should say what that thing is. If you
+need the word *and* to describe it, split it.
+
+## Let tests describe behaviour
+
+Good tests read like documentation:
+
+```ts
+it('rejects a withdrawal that exceeds the balance', () => {
+  const account = new Account(100);
+  expect(() => account.withdraw(150)).toThrow(InsufficientFunds);
+});
+```
+
+## Comment the why, not the what
+
+The code already says *what* happens. Comments earn their place when they explain
+a constraint, a trade-off or a surprising decision.
+
+## Leave it better than you found it
+
+Rename one confusing variable, delete one dead branch, add one missing test. Small,
+consistent improvements compound faster than any big rewrite.

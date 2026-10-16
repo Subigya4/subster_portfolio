@@ -1,0 +1,40 @@
+Next.js gives you a lot of power out of the box, but a project only stays fast and
+maintainable if its structure grows deliberately. These are the patterns I reach for
+when a side project turns into a product.
+
+## Start with the route tree
+
+The App Router's folder structure *is* your information architecture. Keep routes
+shallow, colocate components that are only used by one route, and promote anything
+shared into a top-level `components/` folder only once it is used twice.
+
+## Fetch on the server by default
+
+Server Components let you read from a database or an API without shipping that
+code to the browser. Reach for client components only when you need interactivity —
+forms, animations, anything that touches `window`.
+
+```tsx
+// app/projects/page.tsx
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+  return <ProjectList projects={projects} />;
+}
+```
+
+## Cache with intent
+
+Every `fetch` can be cached, revalidated on a schedule, or forced dynamic. Decide per
+request rather than per app, and write the decision down in a comment — your future
+self will thank you.
+
+## Ship static where you can
+
+If a page does not depend on the request, prerender it. Static pages are cheaper,
+faster and impossible to take down with traffic spikes.
+
+## Measure before optimising
+
+Use the bundle analyser and Lighthouse before reaching for memoisation or exotic
+loading strategies. Most slow pages are slow for boring reasons: oversized images,
+blocking third-party scripts and unbounded data fetching.

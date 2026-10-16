@@ -1,0 +1,29 @@
+AI pair programmers have gone from novelty to daily tool in a couple of years. They
+are genuinely useful — and genuinely easy to misuse. Here is how I think about them.
+
+## What they are great at
+
+- Boilerplate: configs, type definitions, test scaffolding, data transforms.
+- Explaining unfamiliar code or error messages in plain language.
+- Exploring alternatives quickly before committing to a design.
+
+## Where they fall short
+
+Models are confident even when they are wrong. They do not know your product, your
+users or the constraint your teammate mentioned in standup. Treat every suggestion
+as a pull request from an enthusiastic junior: review it, test it, own it.
+
+## Fundamentals matter more, not less
+
+When generating code is cheap, judgement becomes the scarce skill. Knowing how
+HTTP, databases, rendering and concurrency actually work is what lets you tell a
+good suggestion from a plausible-looking one.
+
+## A simple workflow that works
+
+1. Write the interface and a couple of tests yourself.
+2. Let the assistant fill in the implementation.
+3. Read every line. Run the tests. Refactor for clarity.
+
+The tools will keep improving. The habit of understanding what you ship should not
+change at all.

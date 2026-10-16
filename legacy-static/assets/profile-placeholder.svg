@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 568" width="480" height="568" role="img" aria-label="Placeholder portrait">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7a3d"/>
+      <stop offset="1" stop-color="#c9420f"/>
+    </linearGradient>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1210"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="568" fill="url(#bg)"/>
+  <!-- soft light -->
+  <circle cx="110" cy="90" r="180" fill="#ffffff" opacity="0.08"/>
+  <!-- silhouette: shoulders -->
+  <path d="M-20 568 C 40 430 140 390 240 392 C 340 390 440 430 500 568 Z" fill="url(#shade)"/>
+  <!-- neck -->
+  <rect x="196" y="300" width="88" height="110" rx="30" fill="#120c0a"/>
+  <!-- head -->
+  <ellipse cx="240" cy="230" rx="112" ry="132" fill="#1a1210"/>
+  <!-- rim light on the face -->
+  <path d="M300 130 C 352 170 356 270 318 330 C 338 280 334 190 300 130 Z" fill="#ff9a66" opacity="0.35"/>
+</svg>
