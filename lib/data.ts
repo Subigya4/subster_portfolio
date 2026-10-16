@@ -62,65 +62,104 @@ export const skills: { tone: 'orange' | 'lime'; icon: IconName; title: [string, 
   { tone: 'lime', icon: 'layout', title: ['REACT, NEXT.JS,', 'NODE, TYPESCRIPT'], href: '/#tools' },
 ];
 
+/** A transparent logo shown centred on a coloured tile (thumbnail and page cover). */
+export type ProjectLogo = {
+  src: string;
+  width: number;
+  height: number;
+  /** any CSS background */
+  background: string;
+  /** space around the logo; percentages are of the tile width */
+  thumbPadding: string;
+  coverPadding: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
   subtitle: string;
-  thumb: string;
+  /** used when there is no `logo` */
+  thumb?: string;
   cover?: string;
+  logo?: ProjectLogo;
   year: string;
   tags: string[];
   links?: { live?: string; source?: string };
 };
 
+/** Each project needs a matching content/projects/<slug>.mdx body */
 export const projects: Project[] = [
   {
-    slug: 'flowdesk',
-    title: 'FlowDesk',
-    subtitle: 'SaaS Project Management App',
-    thumb: '/assets/project-1.svg',
-    year: '2026',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind'],
-    links: { live: 'https://example.com', source: 'https://github.com/' },
-  },
-  {
-    slug: 'shopnest',
-    title: 'ShopNest',
-    subtitle: 'E-commerce Storefront & Admin',
-    thumb: '/assets/project-2.svg',
+    slug: 'donepali',
+    title: 'DoNepali',
+    subtitle: 'Student-led civic engagement platform',
+    logo: {
+      src: '/assets/logos/donepali.webp',
+      width: 960,
+      height: 388,
+      background: 'linear-gradient(160deg, #ffffff 0%, #fff3f4 100%)',
+      thumbPadding: '12% 8%',
+      coverPadding: '13% 15%',
+    },
     year: '2025',
-    tags: ['React', 'Node.js', 'Stripe', 'Redis'],
-    links: { live: 'https://example.com' },
+    tags: ['Community Engagement', 'Team Collaboration'],
   },
   {
-    slug: 'vitalis',
-    title: 'Vitalis',
-    subtitle: 'Health & Fitness Tracking App',
-    thumb: '/assets/project-3.svg',
-    year: '2024',
-    tags: ['React Native', 'GraphQL', 'AWS'],
-    links: { source: 'https://github.com/' },
+    slug: 'fewzon-ai',
+    title: 'Fewzon AI Initiative',
+    subtitle: 'Early-stage AI automation project',
+    logo: {
+      src: '/assets/logos/fewzon.webp',
+      width: 640,
+      height: 640,
+      background: 'linear-gradient(160deg, #ffffff 0%, #f2f8ff 100%)',
+      thumbPadding: '18%',
+      coverPadding: '12% 0',
+    },
+    year: '2025',
+    tags: ['AI', 'Automation', 'Full-Stack Development'],
   },
 ];
 
-export const experience: { company: string; description: string; period: string; href?: string }[] = [
+export type Experience = {
+  role: string;
+  company: string;
+  /** e.g. 'Part-time' */
+  type?: string;
+  location?: string;
+  description: string;
+  period: string;
+  /** optional link (company site, LinkedIn post); rows with a link show the ↗ arrow */
+  href?: string;
+};
+
+export const experience: Experience[] = [
   {
-    company: 'Techverse Labs',
+    role: 'Founder & Student Initiative Lead',
+    company: 'DoNepali',
+    type: 'Part-time',
+    location: 'Remote',
     description:
-      'Lead full-stack engineer building scalable SaaS platforms with React, Next.js and Node — improving performance, reliability and developer experience across the stack.',
-    period: 'Jan 2024 - Present',
+      'Founded DoNepali, a student-led civic engagement platform focused on encouraging responsible community actions among youth. Featured by Routine of Education for initiating the platform.',
+    period: 'Nov 2025 - Present',
   },
   {
-    company: 'CloudNova Solutions',
+    role: 'Student Member – AIVN Technology Club',
+    company: 'AIVN Club',
+    type: 'Part-time',
+    location: 'Remote',
     description:
-      'Designed and shipped REST and GraphQL APIs, automated cloud deployments and collaborated closely with designers and product managers.',
-    period: 'Jun 2022 - Dec 2023',
+      'Participating in technology-focused discussions and collaborative learning activities, and engaging in peer learning sessions on programming, innovation and emerging technologies.',
+    period: 'Oct 2025 - Present',
   },
   {
-    company: 'Pixelcraft Studio',
+    role: 'Project Lead – AI Technology Initiative',
+    company: 'Fewzon',
+    type: 'Part-time',
+    location: 'Remote',
     description:
-      'Built responsive, accessible web interfaces for e-commerce and marketing sites, focusing on usability and pixel-perfect implementation.',
-    period: 'Mar 2021 - May 2022',
+      'Initiated and led an early-stage AI-based project focused on exploring automation and software development solutions.',
+    period: 'Jan 2025 - Present',
   },
 ];
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Icon from './Icon';
 import SectionHeading from './SectionHeading';
 import ContactForm from './ContactForm';
+import ProjectVisual from './ProjectVisual';
 import { experience, formatDate, posts, projects, tools } from '@/lib/data';
 
 const Arrow = () => (
@@ -20,7 +21,7 @@ export function ProjectsSection() {
           <li className="reveal" key={p.slug}>
             <Link className="row row--project" href={`/projects/${p.slug}`}>
               <span className="row__thumb">
-                <Image src={p.thumb} alt="" width={130} height={135} />
+                <ProjectVisual project={p} variant="thumb" />
               </span>
               <span className="row__body">
                 <span className="row__title">{p.title}</span>
@@ -44,15 +45,20 @@ export function ExperienceSection() {
           const inner = (
             <>
               <span className="row__body">
-                <span className="row__title">{job.company}</span>
+                <span className="row__heading">
+                  <span className="row__title">{job.role}</span>
+                  <span className="row__sub">
+                    {[job.company, job.type, job.location].filter(Boolean).join(' · ')}
+                  </span>
+                </span>
                 <span className="row__text">{job.description}</span>
                 <span className="row__date">{job.period}</span>
               </span>
-              <Arrow />
+              {job.href && <Arrow />}
             </>
           );
           return (
-            <li className="reveal" key={job.company}>
+            <li className="reveal" key={`${job.company}-${job.role}`}>
               {job.href ? (
                 <a className="row row--exp" href={job.href} target="_blank" rel="noopener">
                   {inner}

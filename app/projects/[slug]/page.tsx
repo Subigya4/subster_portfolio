@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
+import ProjectVisual from '@/components/ProjectVisual';
 import { notFound } from 'next/navigation';
 import { projects } from '@/lib/data';
 
@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </header>
 
         <div className="article__cover">
-          <Image src={project.cover ?? project.thumb} alt={`${project.title} preview`} width={696} height={480} priority />
+          <ProjectVisual project={project} variant="cover" priority />
         </div>
 
         {project.links && (project.links.live || project.links.source) && (

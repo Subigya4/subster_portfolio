@@ -647,9 +647,12 @@ section[id] { scroll-margin-top: 100px; }
 
 .row--project:hover .row__thumb { transform: scale(1.03); }
 
-/* Experience variant */
+/* Experience variant: role title + "Company · Part-time · Remote" line */
+.row__heading { display: flex; flex-direction: column; gap: 4px; }
 .row--exp { padding: 24px 16px; }
-.row--exp .row__body { gap: 14px; max-width: 460px; }
+/* long role titles use the full row; the description keeps a readable measure */
+.row--exp .row__body { gap: 14px; max-width: none; }
+.row--exp .row__text { max-width: 460px; }
 .row--exp .row__date { margin-top: 6px; }
 .row--exp .row__arrow { top: 46px; }
 
@@ -938,6 +941,24 @@ section[id] { scroll-margin-top: 100px; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Logo tiles: a transparent brand logo centred on its own background
+   (project thumbnails and covers; background + padding come from lib/data.ts) */
+.project-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--logo-pad, 14%);
+}
+
+.row__thumb .project-logo img,
+.article__cover .project-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .article__links {
