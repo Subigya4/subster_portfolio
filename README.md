@@ -73,6 +73,11 @@ While it is empty, submitting opens the visitor's email client addressed to `sit
 
 ## Deploy
 
+- **Cloudflare Workers** (current setup): `wrangler.jsonc` serves `./out` as static assets — no
+  OpenNext adapter is needed for a static export. In the Worker's **Settings → Builds**, set
+  **Build command** to `npm run build` and keep **Deploy command** as `npx wrangler deploy`
+  (Workers Builds ignores build commands written inside `wrangler.jsonc`). From your own
+  machine, `npm run deploy` builds and deploys in one go.
 - **Vercel / Netlify / Cloudflare Pages**: import the repo; build command `npm run build`, output directory `out`.
 - **GitHub Pages / any static host**: upload the `out/` folder. (For a project-page URL like
   `user.github.io/repo`, add `basePath: '/repo'` to `next.config.mjs`.)
