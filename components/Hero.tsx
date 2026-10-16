@@ -49,9 +49,11 @@ export default function Hero() {
             </svg>
             <Icon name={card.icon} className="skill-card__icon" />
             <span className="skill-card__title">
-              {card.title[0]}
-              <br />
-              {card.title[1]}
+              {card.title.map((line) => (
+                <span className="skill-card__line" key={line}>
+                  {line}
+                </span>
+              ))}
             </span>
             <span className="skill-card__arrow" aria-hidden="true">
               <Icon name="arrowRight" />

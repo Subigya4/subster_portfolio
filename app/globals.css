@@ -428,11 +428,13 @@ section[id] { scroll-margin-top: 100px; }
 }
 
 /* Skill cards */
+/* Cards are at least 240px tall (reference) but grow with longer titles;
+   both stretch to the taller one. */
 .skill-cards {
   display: flex;
   gap: 30px;
   width: 100%;
-  height: 240px;
+  min-height: 240px;
 }
 
 .skill-card {
@@ -440,8 +442,8 @@ section[id] { scroll-margin-top: 100px; }
   display: flex;
   flex-direction: column;
   gap: 24px;
-  height: 100%;
-  padding: 40px 20px 22px;
+  /* bottom padding keeps text clear of the 32px arrow button */
+  padding: 40px 20px 66px;
   border-radius: var(--radius);
   overflow: hidden;
   isolation: isolate;
@@ -513,6 +515,12 @@ section[id] { scroll-margin-top: 100px; }
   font-size: 24px;
   font-weight: 500;
   line-height: 1.1;
+}
+
+/* one block per line; a long line wraps into evenly sized rows */
+.skill-card__line {
+  display: block;
+  text-wrap: balance;
 }
 
 .skill-card__arrow {
@@ -1063,7 +1071,7 @@ section[id] { scroll-margin-top: 100px; }
   .display { font-size: 94px; }
   .heading { font-size: 74px; }
   .stat__value { font-size: 60px; }
-  .skill-cards { gap: 20px; height: 260px; }
+  .skill-cards { gap: 20px; min-height: 260px; }
   .skill-card--orange { width: 260px; }
   .section { padding-top: 90px; }
   .row__title { font-size: 20px; }
@@ -1118,7 +1126,7 @@ section[id] { scroll-margin-top: 100px; }
   .list, .tools, .form, .skill-cards { width: 100%; text-align: left; }
   .form { max-width: none; }
 
-  .skill-cards { height: 240px; }
+  .skill-cards { min-height: 240px; }
   .skill-card--orange { width: 300px; }
 
   .tools { grid-template-columns: repeat(3, minmax(220px, 1fr)); }
@@ -1162,7 +1170,7 @@ section[id] { scroll-margin-top: 100px; }
   .stat__label { font-size: 14px; }
 
   .skill-cards { flex-direction: column; align-items: center; gap: 20px; height: auto; }
-  .skill-card { width: 100%; max-width: 350px; height: auto; min-height: 200px; flex: none; padding: 30px 20px 20px; }
+  .skill-card { width: 100%; max-width: 350px; min-height: 200px; flex: none; padding: 30px 20px 62px; }
 
   .section { padding-top: 80px; gap: 20px; }
   #contact.section { gap: 20px; }

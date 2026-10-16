@@ -56,10 +56,21 @@ export const stats: { value: string; label: [string, string] }[] = [
   { value: '10+', label: ['Projects', 'Completed'] },
 ];
 
-/** Written in capitals on purpose (the design uses uppercase; CSS would turn "APIs" into "APIS") */
+/** Written in capitals on purpose (the design uses uppercase; CSS would turn "LLMs" into "LLMS").
+ *  Each entry is one line; long lines wrap evenly inside the card. */
 export const skills: { tone: 'orange' | 'lime'; icon: IconName; title: [string, string]; href: string }[] = [
-  { tone: 'orange', icon: 'layers', title: ['WEB APPS,', 'APIs & CLOUD'], href: '/#projects' },
-  { tone: 'lime', icon: 'layout', title: ['REACT, NEXT.JS,', 'NODE, TYPESCRIPT'], href: '/#tools' },
+  {
+    tone: 'orange',
+    icon: 'layers',
+    title: ['AI ENGINEERING, LLMs & PYTORCH', 'RAG, AI AGENTS & MODEL INFERENCE'],
+    href: '/#projects',
+  },
+  {
+    tone: 'lime',
+    icon: 'layout',
+    title: ['FULL-STACK, CLOUD & DEVOPS', 'NEXT.JS, TYPESCRIPT, PYTHON & AWS'],
+    href: '/#tools',
+  },
 ];
 
 /** A transparent logo shown centred on a coloured tile (thumbnail and page cover). */
