@@ -14,7 +14,7 @@ export const site = {
   title: 'Subster Paudel — Aspiring AI Engineer',
   description:
     'Subster Paudel — Computing student, software developer and tech founder passionate about artificial intelligence, building intelligent applications and real-world products.',
-  url: 'https://substerpaudel.com',
+  url: 'https://subster.dev',
   email: 'hello@substerpaudel.com',
   /** Form endpoint accepting POST + `Accept: application/json` (e.g. https://formspree.io/f/xxxx).
    *  Leave empty to fall back to a mailto: link. */
